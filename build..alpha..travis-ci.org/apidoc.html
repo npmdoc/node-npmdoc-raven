@@ -1,0 +1,3432 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/getsentry/raven-node#readme"
+
+    >raven (v1.2.1)</a>
+</h1>
+<h4>A standalone (Node.js) client for Sentry</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven">module raven</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client">
+            function <span class="apidocSignatureSpan">raven.</span>Client
+            <span class="apidocSignatureSpan">(dsn, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_">
+            function <span class="apidocSignatureSpan">raven.</span>Client.super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.disableConsoleAlerts">
+            function <span class="apidocSignatureSpan">raven.</span>disableConsoleAlerts
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.middleware.connect">
+            function <span class="apidocSignatureSpan">raven.</span>middleware.connect
+            <span class="apidocSignatureSpan">(client)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.patchGlobal">
+            function <span class="apidocSignatureSpan">raven.</span>patchGlobal
+            <span class="apidocSignatureSpan">(client, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.transports.HTTPSTransport">
+            function <span class="apidocSignatureSpan">raven.</span>transports.HTTPSTransport
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.transports.HTTPTransport">
+            function <span class="apidocSignatureSpan">raven.</span>transports.HTTPTransport
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.transports.Transport">
+            function <span class="apidocSignatureSpan">raven.</span>transports.Transport
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.</span>Client.super_.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.</span>breadcrumbs</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.</span>client</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.</span>middleware</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.</span>parsers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.</span>transports</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.</span>transports.HTTPTransport.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">raven.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.Client">module raven.Client</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.Client">
+            function <span class="apidocSignatureSpan">raven.</span>Client
+            <span class="apidocSignatureSpan">(dsn, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_">
+            function <span class="apidocSignatureSpan">raven.Client.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.Client.super_">module raven.Client.super_</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.super_">
+            function <span class="apidocSignatureSpan">raven.Client.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.Client.super_.prototype">module raven.Client.super_.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.captureBreadcrumb">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>captureBreadcrumb
+            <span class="apidocSignatureSpan">(breadcrumb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.captureError">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>captureError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.captureException">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>captureException
+            <span class="apidocSignatureSpan">(err, kwargs, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.captureMessage">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>captureMessage
+            <span class="apidocSignatureSpan">(message, kwargs, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.captureQuery">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>captureQuery
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.config">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>config
+            <span class="apidocSignatureSpan">(dsn, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.context">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>context
+            <span class="apidocSignatureSpan">(ctx, func, onErr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.errorHandler">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>errorHandler
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.generateEventId">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>generateEventId
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.getContext">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>getContext
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.getIdent">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>getIdent
+            <span class="apidocSignatureSpan">(result)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.get_ident">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>get_ident
+            <span class="apidocSignatureSpan">(result)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.install">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>install
+            <span class="apidocSignatureSpan">(opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.interceptErr">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>interceptErr
+            <span class="apidocSignatureSpan">(options, func)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.mergeContext">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>mergeContext
+            <span class="apidocSignatureSpan">(ctx)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.patchGlobal">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>patchGlobal
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.process">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>process
+            <span class="apidocSignatureSpan">(eventId, kwargs, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.requestHandler">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>requestHandler
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.send">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>send
+            <span class="apidocSignatureSpan">(kwargs, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.setCallbackHelper">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setCallbackHelper
+            <span class="apidocSignatureSpan">(propertyName, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.setContext">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setContext
+            <span class="apidocSignatureSpan">(ctx)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.setDataCallback">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setDataCallback
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.setExtraContext">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setExtraContext
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.setShouldSendCallback">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setShouldSendCallback
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.setTagsContext">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setTagsContext
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.setUserContext">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setUserContext
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.uninstall">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>uninstall
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.Client.super_.prototype.wrap">
+            function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>wrap
+            <span class="apidocSignatureSpan">(options, func, onErr)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.breadcrumbs">module raven.breadcrumbs</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.breadcrumbs.record">
+            function <span class="apidocSignatureSpan">raven.breadcrumbs.</span>record
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.client">module raven.client</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.client.Client">
+            function <span class="apidocSignatureSpan">raven.client.</span>Client
+            <span class="apidocSignatureSpan">(dsn, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.client.disableConsoleAlerts">
+            function <span class="apidocSignatureSpan">raven.client.</span>disableConsoleAlerts
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.client.patchGlobal">
+            function <span class="apidocSignatureSpan">raven.client.</span>patchGlobal
+            <span class="apidocSignatureSpan">(client, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.client.</span>breadcrumbs</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.client.</span>middleware</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.client.</span>parsers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.client.</span>transports</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.client.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">raven.client.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.middleware">module raven.middleware</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.middleware.connect">
+            function <span class="apidocSignatureSpan">raven.middleware.</span>connect
+            <span class="apidocSignatureSpan">(client)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.middleware.express">
+            function <span class="apidocSignatureSpan">raven.middleware.</span>express
+            <span class="apidocSignatureSpan">(client)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.middleware.connect">module raven.middleware.connect</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.middleware.connect.connect">
+            function <span class="apidocSignatureSpan">raven.middleware.</span>connect
+            <span class="apidocSignatureSpan">(client)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.middleware.connect.errorHandler">
+            function <span class="apidocSignatureSpan">raven.middleware.connect.</span>errorHandler
+            <span class="apidocSignatureSpan">(clientOrDSN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.middleware.connect.getClient">
+            function <span class="apidocSignatureSpan">raven.middleware.connect.</span>getClient
+            <span class="apidocSignatureSpan">(clientOrDSN)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.middleware.connect.requestHandler">
+            function <span class="apidocSignatureSpan">raven.middleware.connect.</span>requestHandler
+            <span class="apidocSignatureSpan">(clientOrDSN)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.parsers">module raven.parsers</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.parsers.parseError">
+            function <span class="apidocSignatureSpan">raven.parsers.</span>parseError
+            <span class="apidocSignatureSpan">(err, kwargs, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.parsers.parseRequest">
+            function <span class="apidocSignatureSpan">raven.parsers.</span>parseRequest
+            <span class="apidocSignatureSpan">(req, parseUser)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.parsers.parseText">
+            function <span class="apidocSignatureSpan">raven.parsers.</span>parseText
+            <span class="apidocSignatureSpan">(message, kwargs)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.transports">module raven.transports</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.transports.HTTPSTransport">
+            function <span class="apidocSignatureSpan">raven.transports.</span>HTTPSTransport
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.transports.HTTPTransport">
+            function <span class="apidocSignatureSpan">raven.transports.</span>HTTPTransport
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.transports.Transport">
+            function <span class="apidocSignatureSpan">raven.transports.</span>Transport
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.transports.</span>http</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">raven.transports.</span>https</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.transports.HTTPSTransport">module raven.transports.HTTPSTransport</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.transports.HTTPSTransport.HTTPSTransport">
+            function <span class="apidocSignatureSpan">raven.transports.</span>HTTPSTransport
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.transports.HTTPSTransport.super_">
+            function <span class="apidocSignatureSpan">raven.transports.HTTPSTransport.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.transports.HTTPTransport">module raven.transports.HTTPTransport</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.transports.HTTPTransport.HTTPTransport">
+            function <span class="apidocSignatureSpan">raven.transports.</span>HTTPTransport
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.transports.HTTPTransport.super_">
+            function <span class="apidocSignatureSpan">raven.transports.HTTPTransport.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.transports.HTTPTransport.prototype">module raven.transports.HTTPTransport.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.transports.HTTPTransport.prototype.send">
+            function <span class="apidocSignatureSpan">raven.transports.HTTPTransport.prototype.</span>send
+            <span class="apidocSignatureSpan">(client, message, headers, eventId, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.transports.Transport">module raven.transports.Transport</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.transports.Transport.Transport">
+            function <span class="apidocSignatureSpan">raven.transports.</span>Transport
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.transports.Transport.super_">
+            function <span class="apidocSignatureSpan">raven.transports.Transport.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.raven.utils">module raven.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.utils.consoleAlert">
+            function <span class="apidocSignatureSpan">raven.utils.</span>consoleAlert
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.utils.consoleAlertOnce">
+            function <span class="apidocSignatureSpan">raven.utils.</span>consoleAlertOnce
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.utils.disableConsoleAlerts">
+            function <span class="apidocSignatureSpan">raven.utils.</span>disableConsoleAlerts
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.utils.extend">
+            function <span class="apidocSignatureSpan">raven.utils.</span>extend
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.utils.getAuthHeader">
+            function <span class="apidocSignatureSpan">raven.utils.</span>getAuthHeader
+            <span class="apidocSignatureSpan">(timestamp, apiKey, apiSecret)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.utils.getCulprit">
+            function <span class="apidocSignatureSpan">raven.utils.</span>getCulprit
+            <span class="apidocSignatureSpan">(frame)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.utils.getModule">
+            function <span class="apidocSignatureSpan">raven.utils.</span>getModule
+            <span class="apidocSignatureSpan">(filename, base)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.utils.getModules">
+            function <span class="apidocSignatureSpan">raven.utils.</span>getModules
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.utils.parseDSN">
+            function <span class="apidocSignatureSpan">raven.utils.</span>parseDSN
+            <span class="apidocSignatureSpan">(dsn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.raven.utils.parseStack">
+            function <span class="apidocSignatureSpan">raven.utils.</span>parseStack
+            <span class="apidocSignatureSpan">(err, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven" id="apidoc.module.raven">module raven</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client" id="apidoc.element.raven.Client">
+        function <span class="apidocSignatureSpan">raven.</span>Client
+        <span class="apidocSignatureSpan">(dsn, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(dsn, options) {
+  if (dsn instanceof Client) return dsn;
+  var ravenInstance = new Raven();
+  return ravenInstance.config.apply(ravenInstance, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - `autoBreadcrumbs` config field to automatically capture breadcrumbs for:
+    - console logs
+    - http requests
+    - postgres queries
+- Deprecate `captureQuery` [See #239]
+
+# 1.0.0 - 12/12/2016
+- `Raven.config(...)` instead of `new raven.<span class="apidocCodeKeywordSpan">Client</span>(...)`
+- `Raven.install()` instead of `client.patchGlobal()`
+- The callback to `Raven.captureException` now fires after transmission [See #217]
+- Added `captureUnhandledRejections` option for Promise rejections
+- Introduced contexts and associated `set/merge/getContext` methods [See #207]
+- Added `shouldSendCallback` config option and `set*Callback` methods [See #220]
+- Added `intercept()` method [See #225]
+- Backwards compatibility was mostly maintained, but lots of stuff was deprecated
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_" id="apidoc.element.raven.Client.super_">
+        function <span class="apidocSignatureSpan">raven.</span>Client.super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Raven() {
+  this.breadcrumbs = {
+    record: this.captureBreadcrumb.bind(this)
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.disableConsoleAlerts" id="apidoc.element.raven.disableConsoleAlerts">
+        function <span class="apidocSignatureSpan">raven.</span>disableConsoleAlerts
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function disableConsoleAlerts() {
+  consoleAlerts = false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- Added `captureUnhandledRejections` option for Promise rejections
+- Introduced contexts and associated `set/merge/getContext` methods [See #207]
+- Added `shouldSendCallback` config option and `set*Callback` methods [See #220]
+- Added `intercept()` method [See #225]
+- Backwards compatibility was mostly maintained, but lots of stuff was deprecated
+ - We&#x27;ll print console messages if you&#x27;re doing anything the old way
+ - We&#x27;ll also print console messages in certain situations where behavior might be surprising, like if no DSN is configured
+ - You can disable these alerts with `Raven.<span class="apidocCodeKeywordSpan">disableConsoleAlerts</span>();`
+
+# 0.12.3 - 11/21/2016
+* Replace `node-uuid` dependency with `uuid` [See #236]
+
+# 0.12.2 - 11/17/2016
+* Add column number to stack frames [See #235]
+* Check that `require.main.filename` is defined [See #233]
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.middleware.connect" id="apidoc.element.raven.middleware.connect">
+        function <span class="apidocSignatureSpan">raven.</span>middleware.connect
+        <span class="apidocSignatureSpan">(client)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">middleware.connect = function (client) {
+  return connectMiddleware.errorHandler(client);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.patchGlobal" id="apidoc.element.raven.patchGlobal">
+        function <span class="apidocSignatureSpan">raven.</span>patchGlobal
+        <span class="apidocSignatureSpan">(client, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function patchGlobal(client, cb) {
+  // handle when the first argument is the callback, with no client specified
+  if (typeof client === &#x27;function&#x27;) {
+    cb = client;
+    client = new Client();
+    // first argument is a string DSN
+  } else if (typeof client === &#x27;string&#x27;) {
+    client = new Client(client);
+  }
+  // at the end, if we still don&#x27;t have a Client, let&#x27;s make one!
+  !(client instanceof Raven) &#x26;&#x26; (client = new Client());
+
+  registerExceptionHandler(client, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - console logs
+  - http requests
+  - postgres queries
+- Deprecate `captureQuery` [See #239]
+
+# 1.0.0 - 12/12/2016
+- `Raven.config(...)` instead of `new raven.Client(...)`
+- `Raven.install()` instead of `client.<span class="apidocCodeKeywordSpan">patchGlobal</span>()`
+- The callback to `Raven.captureException` now fires after transmission [See #217]
+- Added `captureUnhandledRejections` option for Promise rejections
+- Introduced contexts and associated `set/merge/getContext` methods [See #207]
+- Added `shouldSendCallback` config option and `set*Callback` methods [See #220]
+- Added `intercept()` method [See #225]
+- Backwards compatibility was mostly maintained, but lots of stuff was deprecated
+- We&#x27;ll print console messages if you&#x27;re doing anything the old way
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.transports.HTTPSTransport" id="apidoc.element.raven.transports.HTTPSTransport">
+        function <span class="apidocSignatureSpan">raven.</span>transports.HTTPSTransport
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function HTTPSTransport(options) {
+  this.defaultPort = 443;
+  this.transport = https;
+  this.options = options || {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Configuring the HTTP Transport
+------------------------------
+
+.. code-block:: javascript
+
+    Raven.config(&#x27;___DSN___&#x27;, {
+      transport: new raven.<span class="apidocCodeKeywordSpan">transports.HTTPSTransport</span>({rejectUnauthorized: false})
+    });
+
+Disable Raven
+-------------
+
+Passing any falsey value as the DSN will disable sending events upstream:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.transports.HTTPTransport" id="apidoc.element.raven.transports.HTTPTransport">
+        function <span class="apidocSignatureSpan">raven.</span>transports.HTTPTransport
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function HTTPTransport(options) {
+  this.defaultPort = 80;
+  this.transport = http;
+  this.options = options || {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.transports.Transport" id="apidoc.element.raven.transports.Transport">
+        function <span class="apidocSignatureSpan">raven.</span>transports.Transport
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transport() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.Client" id="apidoc.module.raven.Client">module raven.Client</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.Client" id="apidoc.element.raven.Client.Client">
+        function <span class="apidocSignatureSpan">raven.</span>Client
+        <span class="apidocSignatureSpan">(dsn, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(dsn, options) {
+  if (dsn instanceof Client) return dsn;
+  var ravenInstance = new Raven();
+  return ravenInstance.config.apply(ravenInstance, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - `autoBreadcrumbs` config field to automatically capture breadcrumbs for:
+    - console logs
+    - http requests
+    - postgres queries
+- Deprecate `captureQuery` [See #239]
+
+# 1.0.0 - 12/12/2016
+- `Raven.config(...)` instead of `new raven.<span class="apidocCodeKeywordSpan">Client</span>(...)`
+- `Raven.install()` instead of `client.patchGlobal()`
+- The callback to `Raven.captureException` now fires after transmission [See #217]
+- Added `captureUnhandledRejections` option for Promise rejections
+- Introduced contexts and associated `set/merge/getContext` methods [See #207]
+- Added `shouldSendCallback` config option and `set*Callback` methods [See #220]
+- Added `intercept()` method [See #225]
+- Backwards compatibility was mostly maintained, but lots of stuff was deprecated
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_" id="apidoc.element.raven.Client.super_">
+        function <span class="apidocSignatureSpan">raven.Client.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Raven() {
+  this.breadcrumbs = {
+    record: this.captureBreadcrumb.bind(this)
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.Client.super_" id="apidoc.module.raven.Client.super_">module raven.Client.super_</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.super_" id="apidoc.element.raven.Client.super_.super_">
+        function <span class="apidocSignatureSpan">raven.Client.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.Client.super_.prototype" id="apidoc.module.raven.Client.super_.prototype">module raven.Client.super_.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.captureBreadcrumb" id="apidoc.element.raven.Client.super_.prototype.captureBreadcrumb">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>captureBreadcrumb
+        <span class="apidocSignatureSpan">(breadcrumb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">captureBreadcrumb = function (breadcrumb) {
+  // Avoid capturing global-scoped breadcrumbs before instrumentation finishes
+  if (!this.installed) return;
+
+  breadcrumb = extend({
+    timestamp: +new Date / 1000
+  }, breadcrumb);
+
+  var currCtx = this.getContext();
+  if (!currCtx.breadcrumbs) currCtx.breadcrumbs = [];
+  currCtx.breadcrumbs.push(breadcrumb);
+  if (currCtx.breadcrumbs.length &#x3e; this.maxBreadcrumbs) {
+    currCtx.breadcrumbs.shift();
+  }
+
+  this.setContext(currCtx);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Breadcrumbs are records of server and application lifecycle events that can be helpful in understanding the state of the application
+ leading up to a crash.
+
+We can capture breadcrumbs and associate them with a context, and then send them along with any errors captured from that context
+:
+
+.. code-block:: javascript
+
+Raven.context(function () {
+  Raven.<span class="apidocCodeKeywordSpan">captureBreadcrumb</span>({
+    message: &#x27;Received payment confirmation&#x27;,
+    category: &#x27;payment&#x27;,
+    data: {
+       amount: 312,
+    }
+  });
+  // errors thrown here will have breadcrumb attached
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.captureError" id="apidoc.element.raven.Client.super_.prototype.captureError">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>captureError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function captureError() {
+  utils.consoleAlertOnce(&#x27;captureError has been deprecated and will be removed in v2.0; use captureException instead&#x27;);
+  return this.captureException.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.captureException" id="apidoc.element.raven.Client.super_.prototype.captureException">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>captureException
+        <span class="apidocSignatureSpan">(err, kwargs, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function captureException(err, kwargs, cb) {
+  if (!(err instanceof Error)) {
+    // This handles when someone does:
+    //   throw &#x22;something awesome&#x22;;
+    // We synthesize an Error here so we can extract a (rough) stack trace.
+    err = new Error(err);
+  }
+
+  if (!cb &#x26;&#x26; typeof kwargs === &#x27;function&#x27;) {
+    cb = kwargs;
+    kwargs = {};
+  } else {
+    kwargs = kwargs || {};
+  }
+
+  var self = this;
+  var eventId = this.generateEventId();
+  parsers.parseError(err, kwargs, function (kw) {
+    self.process(eventId, kw, cb);
+  });
+
+  return eventId;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+console.log(&#x27;error!&#x27;);
+throw err;
+});
+
+try {
+test
+} catch (ex) {
+client.<span class="apidocCodeKeywordSpan">captureException</span>(ex, {
+  message: &#x27;This is a test message generated using ``raven test``&#x27;,
+  level: &#x27;info&#x27;,
+  logger: &#x27;sentry.test&#x27;,
+  culprit: &#x27;bin:raven at main&#x27;,
+  request: {
+    method: &#x27;GET&#x27;,
+    url: &#x27;http://example.com&#x27;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.captureMessage" id="apidoc.element.raven.Client.super_.prototype.captureMessage">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>captureMessage
+        <span class="apidocSignatureSpan">(message, kwargs, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function captureMessage(message, kwargs, cb) {
+  if (!cb &#x26;&#x26; typeof kwargs === &#x27;function&#x27;) {
+    cb = kwargs;
+    kwargs = {};
+  } else {
+    kwargs = kwargs || {};
+  }
+  var eventId = this.generateEventId();
+  this.process(eventId, parsers.parseText(message, kwargs), cb);
+
+  return eventId;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+This data is then included with any errors or messages, allowing you to see which users are affected by problems.
+
+Capturing Messages
+------------------
+
+.. code-block:: javascript
+
+    client.<span class="apidocCodeKeywordSpan">captureMessage</span>(&#x27;Broken!&#x27;, function (err, eventId) {
+        // The message has now been sent to Sentry
+    });
+
+
+.. _raven-node-additional-data:
+
+Additional Data
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.captureQuery" id="apidoc.element.raven.Client.super_.prototype.captureQuery">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>captureQuery
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function captureQuery() {
+  utils.consoleAlertOnce(&#x27;captureQuery has been deprecated and will be removed in v2.0&#x27;);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* Fixed connect/express middleware, thanks Almad!
+
+# 0.2.0 - 3/18/2012
+* Renamed all methods to follow `client.capture*()` pattern. (Sorry if you were already using it!)
+* All `npm` installed modules are shoved into Sentry for debugging
+* Toggle actual sending based on `NODE_ENV` variable. Check README for information.
+* Fixes for more types of stack traces.
+* Added `client.<span class="apidocCodeKeywordSpan">captureQuery</span>()`
+* Support for `SENTRY_DSN`, `SENTRY_NAME`, and `SENTRY_SITE` enviornment variables
+* More test coverage
+
+# 0.1.0 - 3/17/2012
+* Initial release
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.config" id="apidoc.element.raven.Client.super_.prototype.config">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>config
+        <span class="apidocSignatureSpan">(dsn, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function config(dsn, options) {
+  // We get lots of users using raven-node when they want raven-js, hence this warning if it seems like a browser
+  if (typeof window !== &#x27;undefined&#x27; &#x26;&#x26; typeof document !== &#x27;undefined&#x27; &#x26;&#x26; typeof navigator !== &#x27;undefined&#x27;) {
+    utils.consoleAlertOnce(&#x27;This looks like a browser environment; are you sure you don\&#x27;t want Raven.js for browser JavaScript?
+https://sentry.io/for/javascript&#x27;);
+  }
+
+  if (arguments.length === 0) {
+    // no arguments, use default from environment
+    dsn = process.env.SENTRY_DSN;
+    options = {};
+  }
+  if (typeof dsn === &#x27;object&#x27;) {
+    // They must only be passing through options
+    options = dsn;
+    dsn = process.env.SENTRY_DSN;
+  }
+  options = options || {};
+
+  this.raw_dsn = dsn;
+  this.dsn = utils.parseDSN(dsn);
+  this.name = options.name || process.env.SENTRY_NAME || require(&#x27;os&#x27;).hostname();
+  this.root = options.root || process.cwd();
+  this.transport = options.transport || transports[this.dsn.protocol];
+  this.release = options.release || process.env.SENTRY_RELEASE || &#x27;&#x27;;
+  this.environment = options.environment || process.env.SENTRY_ENVIRONMENT || &#x27;&#x27;;
+
+  // autoBreadcrumbs: true enables all, autoBreadcrumbs: false disables all
+  // autoBreadcrumbs: { http: true } enables a single type
+  // this procedure will ensure that this.autoBreadcrumbs is an object populated
+  // with keys -&#x3e; bools reflecting actual status of all breadcrumb types
+  var autoBreadcrumbDefaults = {
+    console: false,
+    http: false,
+    pg: false
+  };
+  // default to 30, don&#x27;t allow higher than 100
+  this.maxBreadcrumbs = Math.max(0, Math.min(options.maxBreadcrumbs || 30, 100));
+  this.autoBreadcrumbs = extend({}, autoBreadcrumbDefaults);
+  if (typeof options.autoBreadcrumbs !== &#x27;undefined&#x27;) {
+    for (var key in autoBreadcrumbDefaults) {
+      if (autoBreadcrumbDefaults.hasOwnProperty(key)) {
+        if (typeof options.autoBreadcrumbs === &#x27;boolean&#x27;) {
+          this.autoBreadcrumbs[key] = options.autoBreadcrumbs;
+        } else if (typeof options.autoBreadcrumbs[key] === &#x27;boolean&#x27;) {
+          this.autoBreadcrumbs[key] = options.autoBreadcrumbs[key];
+        }
+      }
+    }
+  }
+
+  this.captureUnhandledRejections = options.captureUnhandledRejections;
+  this.loggerName = options.logger || &#x27;&#x27;;
+  this.dataCallback = options.dataCallback;
+  this.shouldSendCallback = options.shouldSendCallback;
+  this.sampleRate = typeof options.sampleRate === &#x27;undefined&#x27; ? 1 : options.sampleRate;
+  this.parseUser = options.parseUser;
+
+  if (!this.dsn) {
+    utils.consoleAlert(&#x27;no DSN provided, error reporting disabled&#x27;);
+  }
+
+  if (this.dsn.protocol === &#x27;https&#x27;) {
+    // In case we want to provide our own SSL certificates / keys
+    this.ca = options.ca || null;
+  }
+
+  // enabled if a dsn is set
+  this._enabled = !!this.dsn;
+
+  var globalContext = this._globalContext = {};
+  if (options.tags) {
+    globalContext.tags = options.tags;
+  }
+  if (options.extra) {
+    globalContext.extra = options.extra;
+  }
+
+  this.on(&#x27;error&#x27;, function (err) {
+    utils.consoleAlert(&#x27;failed to send exception to sentry: &#x27; + err.message);
+  });
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - `autoBreadcrumbs` config field to automatically capture breadcrumbs for:
+    - console logs
+    - http requests
+    - postgres queries
+- Deprecate `captureQuery` [See #239]
+
+# 1.0.0 - 12/12/2016
+- `Raven.<span class="apidocCodeKeywordSpan">config</span>(...)` instead of `new raven.Client(...)`
+- `Raven.install()` instead of `client.patchGlobal()`
+- The callback to `Raven.captureException` now fires after transmission [See #217]
+- Added `captureUnhandledRejections` option for Promise rejections
+- Introduced contexts and associated `set/merge/getContext` methods [See #207]
+- Added `shouldSendCallback` config option and `set*Callback` methods [See #220]
+- Added `intercept()` method [See #225]
+- Backwards compatibility was mostly maintained, but lots of stuff was deprecated
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.context" id="apidoc.element.raven.Client.super_.prototype.context">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>context
+        <span class="apidocSignatureSpan">(ctx, func, onErr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">context = function (ctx, func, onErr) {
+  if (!func &#x26;&#x26; typeof ctx === &#x27;function&#x27;) {
+    func = ctx;
+    ctx = {};
+  }
+
+  // todo/note: raven-js takes an args param to do apply(this, args)
+  // i don&#x27;t think it&#x27;s correct/necessary to bind this to the wrap call
+  // and i don&#x27;t know if we need to support the args param; it&#x27;s undocumented
+  return this.wrap(ctx, func, onErr).apply(null);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        Raven.captureException(e);
+    }
+
+You can also use ``wrap`` and ``context`` to have Raven wrap a function and automatically capture any exceptions it throws:
+
+.. code-block:: javascript
+
+  Raven.<span class="apidocCodeKeywordSpan">context</span>(function () {
+    doSomething(a[0]);
+  });
+
+For more information on reporting errors, see :doc:`usage`.
+
+Adding Context
+--------------
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.errorHandler" id="apidoc.element.raven.Client.super_.prototype.errorHandler">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>errorHandler
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">errorHandler = function () {
+  var self = this;
+  return function (err, req, res, next) {
+    var status = err.status || err.statusCode || err.status_code || 500;
+
+    // skip anything not marked as an internal server error
+    if (status &#x3c; 500) return next(err);
+
+    var kwargs = parsers.parseRequest(req, self.parseUser);
+    var eventId = self.captureException(err, kwargs);
+    res.sentry = eventId;
+    return next(err);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    Raven.requestHandler(),
+
+    connect.bodyParser(),
+    connect.cookieParser(),
+    mainHandler,
+
+    // The error handler must be before any other error middleware
+    Raven.<span class="apidocCodeKeywordSpan">errorHandler</span>(),
+
+    // Optional fallthrough error handler
+    onError,
+).listen(3000);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.generateEventId" id="apidoc.element.raven.Client.super_.prototype.generateEventId">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>generateEventId
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function generateEventId() {
+  return uuid().replace(/-/g, &#x27;&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  },
+
+  process: function process(eventId, kwargs, cb) {
+// prod codepaths shouldn&#x27;t hit this branch, for testing
+if (typeof eventId === &#x27;object&#x27;) {
+  cb = kwargs;
+  kwargs = eventId;
+  eventId = this.<span class="apidocCodeKeywordSpan">generateEventId</span>();
+}
+
+var domainContext = domain.active &#x26;&#x26; domain.active.sentryContext || {};
+kwargs.user = extend({}, this._globalContext.user, domainContext.user, kwargs.user);
+kwargs.tags = extend({}, this._globalContext.tags, domainContext.tags, kwargs.tags);
+kwargs.extra = extend({}, this._globalContext.extra, domainContext.extra, kwargs.extra);
+kwargs.breadcrumbs = {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.getContext" id="apidoc.element.raven.Client.super_.prototype.getContext">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>getContext
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getContext() {
+  if (domain.active) {
+    if (!domain.active.sentryContext) {
+      domain.active.sentryContext = {};
+      utils.consoleAlert(&#x27;sentry context not found on active domain&#x27;);
+    }
+    return domain.active.sentryContext;
+  }
+  return this._globalContext;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  Raven.mergeContext({
+    tags: {
+      component: &#x27;api&#x27;
+    }
+  });
+
+  console.log(Raven.<span class="apidocCodeKeywordSpan">getContext</span>());
+  // { user: ..., tags: ... }
+
+A context most commonly corresponds to a request; if you&#x27;re using our Express middleware, each request is automatically
+wrapped in its own context, so you can use Raven&#x27;s context methods from inside any of your middleware or handlers.
+A context might also correspond to, say, a connection lifecycle or a job being handled in a worker process.
+
+Notable keys that you might set include ``user``, ``tags``, and ``extra``.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.getIdent" id="apidoc.element.raven.Client.super_.prototype.getIdent">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>getIdent
+        <span class="apidocSignatureSpan">(result)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getIdent(result) {
+  utils.consoleAlertOnce(&#x27;getIdent has been deprecated and will be removed in v2.0&#x27;);
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var client = new raven.Client(dsn);
+
+console.log(&#x27;Sending a test message...&#x27;);
+
+client.on(&#x27;logged&#x27;, function(result) {
+  console.log(&#x27;success!&#x27;);
+  console.log(&#x27;Event ID was&#x27;, client.<span class="apidocCodeKeywordSpan">getIdent</span>(result));
+});
+client.on(&#x27;error&#x27;, function(err) {
+  console.log(&#x27;error!&#x27;);
+  throw err;
+});
+
+try {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.get_ident" id="apidoc.element.raven.Client.super_.prototype.get_ident">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>get_ident
+        <span class="apidocSignatureSpan">(result)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getIdent(result) {
+  utils.consoleAlertOnce(&#x27;getIdent has been deprecated and will be removed in v2.0&#x27;);
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.install" id="apidoc.element.raven.Client.super_.prototype.install">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>install
+        <span class="apidocSignatureSpan">(opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function install(opts, cb) {
+  if (this.installed) return this;
+
+  if (typeof opts === &#x27;function&#x27;) {
+    cb = opts;
+  }
+
+  registerExceptionHandler(this, cb);
+  if (this.captureUnhandledRejections) {
+    registerRejectionHandler(this, cb);
+  }
+
+  for (var key in this.autoBreadcrumbs) {
+    if (this.autoBreadcrumbs.hasOwnProperty(key)) {
+      this.autoBreadcrumbs[key] &#x26;&#x26; autoBreadcrumbs.instrument(key, this);
+    }
+  }
+
+  this.installed = true;
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - console logs
+  - http requests
+  - postgres queries
+- Deprecate `captureQuery` [See #239]
+
+# 1.0.0 - 12/12/2016
+- `Raven.config(...)` instead of `new raven.Client(...)`
+- `Raven.<span class="apidocCodeKeywordSpan">install</span>()` instead of `client.patchGlobal()`
+- The callback to `Raven.captureException` now fires after transmission [See #217]
+- Added `captureUnhandledRejections` option for Promise rejections
+- Introduced contexts and associated `set/merge/getContext` methods [See #207]
+- Added `shouldSendCallback` config option and `set*Callback` methods [See #220]
+- Added `intercept()` method [See #225]
+- Backwards compatibility was mostly maintained, but lots of stuff was deprecated
+- We&#x27;ll print console messages if you&#x27;re doing anything the old way
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.interceptErr" id="apidoc.element.raven.Client.super_.prototype.interceptErr">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>interceptErr
+        <span class="apidocSignatureSpan">(options, func)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">interceptErr = function (options, func) {
+  if (!func &#x26;&#x26; typeof options === &#x27;function&#x27;) {
+    func = options;
+    options = {};
+  }
+  var self = this;
+  var wrapped = function () {
+    var err = arguments[0];
+    if (err instanceof Error) {
+      self.captureException(err, options);
+    } else {
+      func.apply(null, arguments);
+    }
+  };
+
+  // repetitive with wrap
+  for (var property in func) {
+    if ({}.hasOwnProperty.call(func, property)) {
+      wrapped[property] = func[property];
+    }
+  }
+  wrapped.prototype = func.prototype;
+  wrapped.__raven__ = true;
+  wrapped.__inner__ = func;
+
+  return wrapped;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.mergeContext" id="apidoc.element.raven.Client.super_.prototype.mergeContext">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>mergeContext
+        <span class="apidocSignatureSpan">(ctx)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mergeContext(ctx) {
+  extend(this.getContext(), ctx);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Raven.setContext({
+  user: {
+    username: &#x27;lewis&#x27;
+  }
+});
+
+Raven.<span class="apidocCodeKeywordSpan">mergeContext</span>({
+  tags: {
+    component: &#x27;api&#x27;
+  }
+});
+
+console.log(Raven.getContext());
+// { user: ..., tags: ... }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.patchGlobal" id="apidoc.element.raven.Client.super_.prototype.patchGlobal">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>patchGlobal
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">patchGlobal = function (cb) {
+  utils.consoleAlertOnce(&#x27;patchGlobal has been deprecated and will be removed in v2.0; use install instead&#x27;);
+  registerExceptionHandler(this, cb);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - console logs
+  - http requests
+  - postgres queries
+- Deprecate `captureQuery` [See #239]
+
+# 1.0.0 - 12/12/2016
+- `Raven.config(...)` instead of `new raven.Client(...)`
+- `Raven.install()` instead of `client.<span class="apidocCodeKeywordSpan">patchGlobal</span>()`
+- The callback to `Raven.captureException` now fires after transmission [See #217]
+- Added `captureUnhandledRejections` option for Promise rejections
+- Introduced contexts and associated `set/merge/getContext` methods [See #207]
+- Added `shouldSendCallback` config option and `set*Callback` methods [See #220]
+- Added `intercept()` method [See #225]
+- Backwards compatibility was mostly maintained, but lots of stuff was deprecated
+- We&#x27;ll print console messages if you&#x27;re doing anything the old way
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.process" id="apidoc.element.raven.Client.super_.prototype.process">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>process
+        <span class="apidocSignatureSpan">(eventId, kwargs, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function process(eventId, kwargs, cb) {
+  // prod codepaths shouldn&#x27;t hit this branch, for testing
+  if (typeof eventId === &#x27;object&#x27;) {
+    cb = kwargs;
+    kwargs = eventId;
+    eventId = this.generateEventId();
+  }
+
+  var domainContext = domain.active &#x26;&#x26; domain.active.sentryContext || {};
+  kwargs.user = extend({}, this._globalContext.user, domainContext.user, kwargs.user);
+  kwargs.tags = extend({}, this._globalContext.tags, domainContext.tags, kwargs.tags);
+  kwargs.extra = extend({}, this._globalContext.extra, domainContext.extra, kwargs.extra);
+  kwargs.breadcrumbs = {
+    values: domainContext.breadcrumbs || this._globalContext.breadcrumbs || []
+  };
+
+  kwargs.modules = utils.getModules();
+  kwargs.server_name = kwargs.server_name || this.name;
+
+  if (typeof process.version !== &#x27;undefined&#x27;) {
+    kwargs.extra.node = process.version;
+  }
+
+  kwargs.environment = kwargs.environment || this.environment;
+  kwargs.logger = kwargs.logger || this.loggerName;
+  kwargs.event_id = eventId;
+  kwargs.timestamp = new Date().toISOString().split(&#x27;.&#x27;)[0];
+  kwargs.project = this.dsn.project_id;
+  kwargs.platform = &#x27;node&#x27;;
+
+  // Only include release information if it is set
+  if (this.release) {
+    kwargs.release = this.release;
+  }
+
+  if (this.dataCallback) {
+    kwargs = this.dataCallback(kwargs);
+  }
+
+  var shouldSend = true;
+  if (!this._enabled) shouldSend = false;
+  if (this.shouldSendCallback &#x26;&#x26; !this.shouldSendCallback(kwargs)) shouldSend = false;
+  if (Math.random() &#x3e;= this.sampleRate) shouldSend = false;
+
+  if (shouldSend) {
+    this.send(kwargs, cb);
+  } else {
+    // wish there was a good way to communicate to cb why we didn&#x27;t send; worth considering cb api change?
+    // could be shouldSendCallback, could be disabled, could be sample rate
+    // avoiding setImmediate here because node 0.8
+    cb &#x26;&#x26; setTimeout(function () {
+      cb(null, eventId);
+    }, 0);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!cb &#x26;&#x26; typeof kwargs === &#x27;function&#x27;) {
+    cb = kwargs;
+    kwargs = {};
+  } else {
+    kwargs = kwargs || {};
+  }
+  var eventId = this.generateEventId();
+  this.<span class="apidocCodeKeywordSpan">process</span>(eventId, parsers.parseText(message, kwargs), cb);
+
+  return eventId;
+},
+
+captureException: function captureException(err, kwargs, cb) {
+  if (!(err instanceof Error)) {
+    // This handles when someone does:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.requestHandler" id="apidoc.element.raven.Client.super_.prototype.requestHandler">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>requestHandler
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">requestHandler = function () {
+  var self = this;
+  return function (req, res, next) {
+    self.context({}, function () {
+      domain.active.add(req);
+      domain.active.add(res);
+      next();
+    }, next);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// and optionally displayed to the user for support.
+res.statusCode = 500;
+res.end(res.sentry + &#x27;\n&#x27;);
+  }
+
+  connect(
+// The request handler be the first item
+Raven.<span class="apidocCodeKeywordSpan">requestHandler</span>(),
+
+connect.bodyParser(),
+connect.cookieParser(),
+mainHandler,
+
+// The error handler must be before any other error middleware
+Raven.errorHandler(),
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.send" id="apidoc.element.raven.Client.super_.prototype.send">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>send
+        <span class="apidocSignatureSpan">(kwargs, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function send(kwargs, cb) {
+  var self = this;
+  var skwargs = stringify(kwargs);
+  var eventId = kwargs.event_id;
+
+  zlib.deflate(skwargs, function (err, buff) {
+    var message = buff.toString(&#x27;base64&#x27;),
+        timestamp = new Date().getTime(),
+        headers = {
+          &#x27;X-Sentry-Auth&#x27;: utils.getAuthHeader(timestamp, self.dsn.public_key, self.dsn.private_key),
+          &#x27;Content-Type&#x27;: &#x27;application/octet-stream&#x27;,
+          &#x27;Content-Length&#x27;: message.length
+        };
+
+    self.transport.send(self, message, headers, eventId, cb);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var shouldSend = true;
+if (!this._enabled) shouldSend = false;
+if (this.shouldSendCallback &#x26;&#x26; !this.shouldSendCallback(kwargs)) shouldSend = false;
+if (Math.random() &#x3e;= this.sampleRate) shouldSend = false;
+
+if (shouldSend) {
+  this.<span class="apidocCodeKeywordSpan">send</span>(kwargs, cb);
+} else {
+  // wish there was a good way to communicate to cb why we didn&#x27;t send; worth considering cb api change?
+  // could be shouldSendCallback, could be disabled, could be sample rate
+  // avoiding setImmediate here because node 0.8
+  cb &#x26;&#x26; setTimeout(function () {
+    cb(null, eventId);
+  }, 0);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.setCallbackHelper" id="apidoc.element.raven.Client.super_.prototype.setCallbackHelper">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setCallbackHelper
+        <span class="apidocSignatureSpan">(propertyName, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setCallbackHelper = function (propertyName, callback) {
+  var original = this[propertyName];
+  if (typeof callback === &#x27;function&#x27;) {
+    this[propertyName] = function (data) {
+      return callback(data, original);
+    };
+  } else {
+    this[propertyName] = callback;
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Set the dataCallback option
+ *
+ * @param {function} callback The callback to run which allows the
+ *                            data blob to be mutated before sending
+ * @return {Raven}
+ */
+setDataCallback: function (callback) {
+  return this.<span class="apidocCodeKeywordSpan">setCallbackHelper</span>(&#x27;dataCallback&#x27;, callback);
+},
+
+/*
+ * Set the shouldSendCallback option
+ *
+ * @param {function} callback The callback to run which allows
+ *                            introspecting the blob before sending
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.setContext" id="apidoc.element.raven.Client.super_.prototype.setContext">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setContext
+        <span class="apidocSignatureSpan">(ctx)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setContext(ctx) {
+  if (domain.active) {
+    domain.active.sentryContext = ctx;
+  } else {
+    this._globalContext = ctx;
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Code run via ``wrap`` or ``context`` has an associated set of context data, and Raven provides methods for managing that data.
+
+You&#x27;ll most commonly use this to associate the current user with an exception:
+
+.. code-block:: javascript
+
+Raven.context(function () {
+  Raven.<span class="apidocCodeKeywordSpan">setContext</span>({
+    user: {
+      email: &#x27;matt@example.com&#x27;,
+      id: &#x27;123&#x27;
+    }
+  });
+  // errors thrown here will be associated with matt
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.setDataCallback" id="apidoc.element.raven.Client.super_.prototype.setDataCallback">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setDataCallback
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setDataCallback = function (callback) {
+  return this.setCallbackHelper(&#x27;dataCallback&#x27;, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.setExtraContext" id="apidoc.element.raven.Client.super_.prototype.setExtraContext">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setExtraContext
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setExtraContext() {
+  utils.consoleAlertOnce(&#x27;setExtraContext has been deprecated and will be removed in v2.0; use setContext instead&#x27;);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.setShouldSendCallback" id="apidoc.element.raven.Client.super_.prototype.setShouldSendCallback">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setShouldSendCallback
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setShouldSendCallback = function (callback) {
+  return this.setCallbackHelper(&#x27;shouldSendCallback&#x27;, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.setTagsContext" id="apidoc.element.raven.Client.super_.prototype.setTagsContext">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setTagsContext
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setTagsContext() {
+  utils.consoleAlertOnce(&#x27;setTagsContext has been deprecated and will be removed in v2.0; use setContext instead&#x27;);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.setUserContext" id="apidoc.element.raven.Client.super_.prototype.setUserContext">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>setUserContext
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setUserContext() {
+  utils.consoleAlertOnce(&#x27;setUserContext has been deprecated and will be removed in v2.0; use setContext instead&#x27;);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.uninstall" id="apidoc.element.raven.Client.super_.prototype.uninstall">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>uninstall
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function uninstall() {
+  if (!this.installed) return this;
+
+  autoBreadcrumbs.restoreOriginals();
+
+  // todo: this works for tests for now, but isn&#x27;t what we ultimately want to be doing
+  process.removeAllListeners(&#x27;uncaughtException&#x27;);
+  process.removeAllListeners(&#x27;unhandledRejection&#x27;);
+
+  this.installed = false;
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.Client.super_.prototype.wrap" id="apidoc.element.raven.Client.super_.prototype.wrap">
+        function <span class="apidocSignatureSpan">raven.Client.super_.prototype.</span>wrap
+        <span class="apidocSignatureSpan">(options, func, onErr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">wrap = function (options, func, onErr) {
+  if (!func &#x26;&#x26; typeof options === &#x27;function&#x27;) {
+    func = options;
+    options = {};
+  }
+
+  var wrapDomain = domain.create();
+  // todo: better property name than sentryContext, maybe __raven__ or sth?
+  wrapDomain.sentryContext = options;
+
+  var self = this;
+  if (typeof onErr !== &#x27;function&#x27;) {
+    onErr = function (err) {
+      self.captureException(err);
+    };
+  }
+
+  wrapDomain.on(&#x27;error&#x27;, onErr);
+  var wrapped = wrapDomain.bind(func);
+
+  for (var property in func) {
+    if ({}.hasOwnProperty.call(func, property)) {
+      wrapped[property] = func[property];
+    }
+  }
+  wrapped.prototype = func.prototype;
+  wrapped.__raven__ = true;
+  wrapped.__inner__ = func;
+  // note: domain.bind sets wrapped.domain, but it&#x27;s not documented, unsure if we should rely on that
+  wrapped.__domain__ = wrapDomain;
+
+  return wrapped;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+.. code-block:: javascript
+
+  var doIt = function () {
+      // doing cool stuff
+  }
+
+  setTimeout(Raven.<span class="apidocCodeKeywordSpan">wrap</span>(doIt), 1000)
+
+We refer to code wrapped via ``Raven.context`` or ``Raven.wrap`` as being inside a context. Code inside a context
+has access to the ``setContext``, ``mergeContext``, and ``getContext`` methods for associating data with that context.
+
+.. code-block:: javascript
+
+Raven.setContext({
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.breadcrumbs" id="apidoc.module.raven.breadcrumbs">module raven.breadcrumbs</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.breadcrumbs.record" id="apidoc.element.raven.breadcrumbs.record">
+        function <span class="apidocSignatureSpan">raven.breadcrumbs.</span>record
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">record = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.client" id="apidoc.module.raven.client">module raven.client</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.client.Client" id="apidoc.element.raven.client.Client">
+        function <span class="apidocSignatureSpan">raven.client.</span>Client
+        <span class="apidocSignatureSpan">(dsn, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(dsn, options) {
+  if (dsn instanceof Client) return dsn;
+  var ravenInstance = new Raven();
+  return ravenInstance.config.apply(ravenInstance, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - `autoBreadcrumbs` config field to automatically capture breadcrumbs for:
+    - console logs
+    - http requests
+    - postgres queries
+- Deprecate `captureQuery` [See #239]
+
+# 1.0.0 - 12/12/2016
+- `Raven.config(...)` instead of `new raven.<span class="apidocCodeKeywordSpan">Client</span>(...)`
+- `Raven.install()` instead of `client.patchGlobal()`
+- The callback to `Raven.captureException` now fires after transmission [See #217]
+- Added `captureUnhandledRejections` option for Promise rejections
+- Introduced contexts and associated `set/merge/getContext` methods [See #207]
+- Added `shouldSendCallback` config option and `set*Callback` methods [See #220]
+- Added `intercept()` method [See #225]
+- Backwards compatibility was mostly maintained, but lots of stuff was deprecated
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.client.disableConsoleAlerts" id="apidoc.element.raven.client.disableConsoleAlerts">
+        function <span class="apidocSignatureSpan">raven.client.</span>disableConsoleAlerts
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function disableConsoleAlerts() {
+  consoleAlerts = false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- Added `captureUnhandledRejections` option for Promise rejections
+- Introduced contexts and associated `set/merge/getContext` methods [See #207]
+- Added `shouldSendCallback` config option and `set*Callback` methods [See #220]
+- Added `intercept()` method [See #225]
+- Backwards compatibility was mostly maintained, but lots of stuff was deprecated
+ - We&#x27;ll print console messages if you&#x27;re doing anything the old way
+ - We&#x27;ll also print console messages in certain situations where behavior might be surprising, like if no DSN is configured
+ - You can disable these alerts with `Raven.<span class="apidocCodeKeywordSpan">disableConsoleAlerts</span>();`
+
+# 0.12.3 - 11/21/2016
+* Replace `node-uuid` dependency with `uuid` [See #236]
+
+# 0.12.2 - 11/17/2016
+* Add column number to stack frames [See #235]
+* Check that `require.main.filename` is defined [See #233]
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.client.patchGlobal" id="apidoc.element.raven.client.patchGlobal">
+        function <span class="apidocSignatureSpan">raven.client.</span>patchGlobal
+        <span class="apidocSignatureSpan">(client, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function patchGlobal(client, cb) {
+  // handle when the first argument is the callback, with no client specified
+  if (typeof client === &#x27;function&#x27;) {
+    cb = client;
+    client = new Client();
+    // first argument is a string DSN
+  } else if (typeof client === &#x27;string&#x27;) {
+    client = new Client(client);
+  }
+  // at the end, if we still don&#x27;t have a Client, let&#x27;s make one!
+  !(client instanceof Raven) &#x26;&#x26; (client = new Client());
+
+  registerExceptionHandler(client, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - console logs
+  - http requests
+  - postgres queries
+- Deprecate `captureQuery` [See #239]
+
+# 1.0.0 - 12/12/2016
+- `Raven.config(...)` instead of `new raven.Client(...)`
+- `Raven.install()` instead of `client.<span class="apidocCodeKeywordSpan">patchGlobal</span>()`
+- The callback to `Raven.captureException` now fires after transmission [See #217]
+- Added `captureUnhandledRejections` option for Promise rejections
+- Introduced contexts and associated `set/merge/getContext` methods [See #207]
+- Added `shouldSendCallback` config option and `set*Callback` methods [See #220]
+- Added `intercept()` method [See #225]
+- Backwards compatibility was mostly maintained, but lots of stuff was deprecated
+- We&#x27;ll print console messages if you&#x27;re doing anything the old way
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.middleware" id="apidoc.module.raven.middleware">module raven.middleware</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.middleware.connect" id="apidoc.element.raven.middleware.connect">
+        function <span class="apidocSignatureSpan">raven.middleware.</span>connect
+        <span class="apidocSignatureSpan">(client)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connect = function (client) {
+  return connectMiddleware.errorHandler(client);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.middleware.express" id="apidoc.element.raven.middleware.express">
+        function <span class="apidocSignatureSpan">raven.middleware.</span>express
+        <span class="apidocSignatureSpan">(client)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">express = function (client) {
+  return connectMiddleware.errorHandler(client);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.middleware.connect" id="apidoc.module.raven.middleware.connect">module raven.middleware.connect</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.middleware.connect.connect" id="apidoc.element.raven.middleware.connect.connect">
+        function <span class="apidocSignatureSpan">raven.middleware.</span>connect
+        <span class="apidocSignatureSpan">(client)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connect = function (client) {
+  return connectMiddleware.errorHandler(client);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.middleware.connect.errorHandler" id="apidoc.element.raven.middleware.connect.errorHandler">
+        function <span class="apidocSignatureSpan">raven.middleware.connect.</span>errorHandler
+        <span class="apidocSignatureSpan">(clientOrDSN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">errorHandler = function (clientOrDSN) {
+  utils.consoleAlertOnce(&#x27;top-level Raven.middleware.*.errorHandler has been deprecated and will be removed in v2.0; use Raven.errorHandler
+() instance method instead&#x27;);
+  return getClient(clientOrDSN).errorHandler();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    Raven.requestHandler(),
+
+    connect.bodyParser(),
+    connect.cookieParser(),
+    mainHandler,
+
+    // The error handler must be before any other error middleware
+    Raven.<span class="apidocCodeKeywordSpan">errorHandler</span>(),
+
+    // Optional fallthrough error handler
+    onError,
+).listen(3000);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.middleware.connect.getClient" id="apidoc.element.raven.middleware.connect.getClient">
+        function <span class="apidocSignatureSpan">raven.middleware.connect.</span>getClient
+        <span class="apidocSignatureSpan">(clientOrDSN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getClient = function (clientOrDSN) {
+  // Raven is an instance, so use Raven.constructor for instanceof check
+  return clientOrDSN instanceof Raven.constructor ? clientOrDSN : new Raven.Client(clientOrDSN);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.middleware.connect.requestHandler" id="apidoc.element.raven.middleware.connect.requestHandler">
+        function <span class="apidocSignatureSpan">raven.middleware.connect.</span>requestHandler
+        <span class="apidocSignatureSpan">(clientOrDSN)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">requestHandler = function (clientOrDSN) {
+  utils.consoleAlertOnce(&#x27;top-level Raven.middleware.*.requestHandler has been deprecated and will be removed in v2.0; use Raven
+.requestHandler() instance method instead&#x27;);
+  return getClient(clientOrDSN).requestHandler();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// and optionally displayed to the user for support.
+res.statusCode = 500;
+res.end(res.sentry + &#x27;\n&#x27;);
+  }
+
+  connect(
+// The request handler be the first item
+Raven.<span class="apidocCodeKeywordSpan">requestHandler</span>(),
+
+connect.bodyParser(),
+connect.cookieParser(),
+mainHandler,
+
+// The error handler must be before any other error middleware
+Raven.errorHandler(),
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.parsers" id="apidoc.module.raven.parsers">module raven.parsers</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.parsers.parseError" id="apidoc.element.raven.parsers.parseError">
+        function <span class="apidocSignatureSpan">raven.parsers.</span>parseError
+        <span class="apidocSignatureSpan">(err, kwargs, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseError(err, kwargs, cb) {
+  utils.parseStack(err, function (frames) {
+    var name = err.name + &#x27;&#x27;;
+    if (typeof kwargs.message === &#x27;undefined&#x27;) {
+      kwargs.message = name + &#x27;: &#x27; + (err.message || &#x27;&#x3c;no message&#x3e;&#x27;);
+    }
+    kwargs.exception = [{
+      type: name,
+      value: err.message,
+      stacktrace: {
+        frames: frames
+      }
+    }];
+
+    // Save additional error properties to `extra` under the error type (e.g. `extra.AttributeError`)
+    var extraErrorProps;
+    for (var key in err) {
+      if (err.hasOwnProperty(key)) {
+        if (key !== &#x27;name&#x27; &#x26;&#x26; key !== &#x27;message&#x27; &#x26;&#x26; key !== &#x27;stack&#x27;) {
+          extraErrorProps = extraErrorProps || {};
+          extraErrorProps[key] = err[key];
+        }
+      }
+    }
+    if (extraErrorProps) {
+      kwargs.extra = kwargs.extra || {};
+      kwargs.extra[name] = extraErrorProps;
+    }
+
+    for (var n = frames.length - 1; n &#x3e;= 0; n--) {
+      if (frames[n].in_app) {
+        kwargs.culprit = kwargs.culprit || utils.getCulprit(frames[n]);
+        break;
+      }
+    }
+
+    cb(kwargs);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    kwargs = {};
+  } else {
+    kwargs = kwargs || {};
+  }
+
+  var self = this;
+  var eventId = this.generateEventId();
+  parsers.<span class="apidocCodeKeywordSpan">parseError</span>(err, kwargs, function (kw) {
+    self.process(eventId, kw, cb);
+  });
+
+  return eventId;
+},
+
+/* The onErr param here is sort of ugly and won&#x27;t typically be used
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.parsers.parseRequest" id="apidoc.element.raven.parsers.parseRequest">
+        function <span class="apidocSignatureSpan">raven.parsers.</span>parseRequest
+        <span class="apidocSignatureSpan">(req, parseUser)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseRequest(req, parseUser) {
+  var kwargs = {};
+
+  // headers:
+  //   node, express: req.headers
+  //   koa: req.header
+  var headers = req.headers || req.header || {};
+
+  // method:
+  //   node, express, koa: req.method
+  var method = req.method;
+
+  // host:
+  //   express: req.hostname in &#x3e; 4 and req.host in &#x3c; 4
+  //   koa: req.host
+  //   node: req.headers.host
+  var host = req.hostname || req.host || headers.host || &#x27;&#x3c;no host&#x3e;&#x27;;
+
+  // protocol:
+  //   node: &#x3c;n/a&#x3e;
+  //   express, koa: req.protocol
+  var protocol = req.protocol === &#x27;https&#x27; || req.secure || (req.socket || {}).encrypted ? &#x27;https&#x27; : &#x27;http&#x27;;
+
+  // url (including path and query string):
+  //   node, express: req.originalUrl
+  //   koa: req.url
+  var originalUrl = req.originalUrl || req.url;
+
+  // absolute url
+  var absoluteUrl = protocol + &#x27;://&#x27; + host + originalUrl;
+
+  // query string:
+  //   node: req.url (raw)
+  //   express, koa: req.query
+  var query = req.query || urlParser.parse(originalUrl || &#x27;&#x27;, true).query;
+
+  // cookies:
+  //   node, express, koa: req.headers.cookie
+  var cookies = cookie.parse(headers.cookie || &#x27;&#x27;);
+
+  // body data:
+  //   node, express, koa: req.body
+  var data = req.body;
+  if ([&#x27;GET&#x27;, &#x27;HEAD&#x27;].indexOf(method) === -1) {
+    if (typeof data === &#x27;undefined&#x27;) {
+      data = &#x27;&#x3c;unavailable&#x3e;&#x27;;
+    }
+  }
+
+  if (data &#x26;&#x26; typeof data !== &#x27;string&#x27; &#x26;&#x26; {}.toString.call(data) !== &#x27;[object String]&#x27;) {
+    // Make sure the request body is a string
+    data = stringify(data);
+  }
+
+  // http interface
+  var http = {
+    method: method,
+    query_string: query,
+    headers: headers,
+    cookies: cookies,
+    data: data,
+    url: absoluteUrl
+  };
+
+  // expose http interface
+  kwargs.request = http;
+
+  // user: typically found on req.user in express/passport patterns
+  // five cases for parseUser value:
+  //   absent: grab only id, username, email from req.user
+  //   false: capture nothing
+  //   true: capture all keys from req.user
+  //   array: provided whitelisted keys to grab from req.user
+  //   function :: req -&#x3e; user: custom parsing function
+  if (parseUser == null) parseUser = [&#x27;id&#x27;, &#x27;username&#x27;, &#x27;email&#x27;];
+  if (parseUser) {
+    var user = {};
+    if (typeof parseUser === &#x27;function&#x27;) {
+      user = parseUser(req);
+    } else if (req.user) {
+      if (parseUser === true) {
+        for (var key in req.user) {
+          if ({}.hasOwnProperty.call(req.user, key)) {
+            user[key] = req.user[key];
+          }
+        }
+      } else {
+        parseUser.forEach(function (fieldName) {
+          if ({}.hasOwnProperty.call(req.user, fieldName)) {
+            user[fieldName] = req.user[fieldName];
+          }
+        });
+      }
+    }
+
+    // client ip:
+    //   node: req.connection.remoteAddress
+    //   express, koa: req.ip
+    var ip = req.ip || req.connection &#x26;&#x26; req.connection.remoteAddress;
+    if (ip) {
+      user.ip_address = ip;
+    }
+
+    kwargs.user = user;
+  }
+
+  return kwargs;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var self = this;
+  return function (err, req, res, next) {
+    var status = err.status || err.statusCode || err.status_code || 500;
+
+    // skip anything not marked as an internal server error
+    if (status &#x3c; 500) return next(err);
+
+    var kwargs = parsers.<span class="apidocCodeKeywordSpan">parseRequest</span>(req, self.parseUser);
+    var eventId = self.captureException(err, kwargs);
+    res.sentry = eventId;
+    return next(err);
+  };
+},
+
+captureBreadcrumb: function (breadcrumb) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.parsers.parseText" id="apidoc.element.raven.parsers.parseText">
+        function <span class="apidocSignatureSpan">raven.parsers.</span>parseText
+        <span class="apidocSignatureSpan">(message, kwargs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseText(message, kwargs) {
+  kwargs = kwargs || {};
+  kwargs.message = message;
+
+  return kwargs;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!cb &#x26;&#x26; typeof kwargs === &#x27;function&#x27;) {
+    cb = kwargs;
+    kwargs = {};
+  } else {
+    kwargs = kwargs || {};
+  }
+  var eventId = this.generateEventId();
+  this.process(eventId, parsers.<span class="apidocCodeKeywordSpan">parseText</span>(message, kwargs), cb);
+
+  return eventId;
+},
+
+captureException: function captureException(err, kwargs, cb) {
+  if (!(err instanceof Error)) {
+    // This handles when someone does:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.transports" id="apidoc.module.raven.transports">module raven.transports</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.transports.HTTPSTransport" id="apidoc.element.raven.transports.HTTPSTransport">
+        function <span class="apidocSignatureSpan">raven.transports.</span>HTTPSTransport
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function HTTPSTransport(options) {
+  this.defaultPort = 443;
+  this.transport = https;
+  this.options = options || {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Configuring the HTTP Transport
+------------------------------
+
+.. code-block:: javascript
+
+    Raven.config(&#x27;___DSN___&#x27;, {
+      transport: new raven.transports.<span class="apidocCodeKeywordSpan">HTTPSTransport</span>({rejectUnauthorized: false})
+    });
+
+Disable Raven
+-------------
+
+Passing any falsey value as the DSN will disable sending events upstream:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.transports.HTTPTransport" id="apidoc.element.raven.transports.HTTPTransport">
+        function <span class="apidocSignatureSpan">raven.transports.</span>HTTPTransport
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function HTTPTransport(options) {
+  this.defaultPort = 80;
+  this.transport = http;
+  this.options = options || {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.transports.Transport" id="apidoc.element.raven.transports.Transport">
+        function <span class="apidocSignatureSpan">raven.transports.</span>Transport
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transport() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.transports.HTTPSTransport" id="apidoc.module.raven.transports.HTTPSTransport">module raven.transports.HTTPSTransport</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.transports.HTTPSTransport.HTTPSTransport" id="apidoc.element.raven.transports.HTTPSTransport.HTTPSTransport">
+        function <span class="apidocSignatureSpan">raven.transports.</span>HTTPSTransport
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function HTTPSTransport(options) {
+  this.defaultPort = 443;
+  this.transport = https;
+  this.options = options || {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Configuring the HTTP Transport
+------------------------------
+
+.. code-block:: javascript
+
+    Raven.config(&#x27;___DSN___&#x27;, {
+      transport: new raven.transports.<span class="apidocCodeKeywordSpan">HTTPSTransport</span>({rejectUnauthorized: false})
+    });
+
+Disable Raven
+-------------
+
+Passing any falsey value as the DSN will disable sending events upstream:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.transports.HTTPSTransport.super_" id="apidoc.element.raven.transports.HTTPSTransport.super_">
+        function <span class="apidocSignatureSpan">raven.transports.HTTPSTransport.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function HTTPTransport(options) {
+  this.defaultPort = 80;
+  this.transport = http;
+  this.options = options || {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.transports.HTTPTransport" id="apidoc.module.raven.transports.HTTPTransport">module raven.transports.HTTPTransport</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.transports.HTTPTransport.HTTPTransport" id="apidoc.element.raven.transports.HTTPTransport.HTTPTransport">
+        function <span class="apidocSignatureSpan">raven.transports.</span>HTTPTransport
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function HTTPTransport(options) {
+  this.defaultPort = 80;
+  this.transport = http;
+  this.options = options || {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.transports.HTTPTransport.super_" id="apidoc.element.raven.transports.HTTPTransport.super_">
+        function <span class="apidocSignatureSpan">raven.transports.HTTPTransport.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transport() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.transports.HTTPTransport.prototype" id="apidoc.module.raven.transports.HTTPTransport.prototype">module raven.transports.HTTPTransport.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.transports.HTTPTransport.prototype.send" id="apidoc.element.raven.transports.HTTPTransport.prototype.send">
+        function <span class="apidocSignatureSpan">raven.transports.HTTPTransport.prototype.</span>send
+        <span class="apidocSignatureSpan">(client, message, headers, eventId, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">send = function (client, message, headers, eventId, cb) {
+  var options = {
+    hostname: client.dsn.host,
+    path: client.dsn.path + &#x27;api/&#x27; + client.dsn.project_id + &#x27;/store/&#x27;,
+    headers: headers,
+    method: &#x27;POST&#x27;,
+    port: client.dsn.port || this.defaultPort,
+    ca: client.ca
+  };
+  for (var key in this.options) {
+    if (this.options.hasOwnProperty(key)) {
+      options[key] = this.options[key];
+    }
+  }
+  var req = this.transport.request(options, function (res) {
+    res.setEncoding(&#x27;utf8&#x27;);
+    if (res.statusCode &#x3e;= 200 &#x26;&#x26; res.statusCode &#x3c; 300) {
+      client.emit(&#x27;logged&#x27;, eventId);
+      cb &#x26;&#x26; cb(null, eventId);
+    } else {
+      var reason = res.headers[&#x27;x-sentry-error&#x27;];
+      var e = new Error(&#x27;HTTP Error (&#x27; + res.statusCode + &#x27;): &#x27; + reason);
+      e.response = res;
+      e.statusCode = res.statusCode;
+      e.reason = reason;
+      e.sendMessage = message;
+      e.requestHeaders = headers;
+      e.eventId = eventId;
+      client.emit(&#x27;error&#x27;, e);
+      cb &#x26;&#x26; cb(e);
+    }
+    // force the socket to drain
+    var noop = function () {};
+    res.on(&#x27;data&#x27;, noop);
+    res.on(&#x27;end&#x27;, noop);
+  });
+
+  var cbFired = false;
+  req.on(&#x27;error&#x27;, function (e) {
+    client.emit(&#x27;error&#x27;, e);
+    if (!cbFired) {
+      cb &#x26;&#x26; cb(e);
+      cbFired = true;
+    }
+  });
+  req.end(message);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var shouldSend = true;
+if (!this._enabled) shouldSend = false;
+if (this.shouldSendCallback &#x26;&#x26; !this.shouldSendCallback(kwargs)) shouldSend = false;
+if (Math.random() &#x3e;= this.sampleRate) shouldSend = false;
+
+if (shouldSend) {
+  this.<span class="apidocCodeKeywordSpan">send</span>(kwargs, cb);
+} else {
+  // wish there was a good way to communicate to cb why we didn&#x27;t send; worth considering cb api change?
+  // could be shouldSendCallback, could be disabled, could be sample rate
+  // avoiding setImmediate here because node 0.8
+  cb &#x26;&#x26; setTimeout(function () {
+    cb(null, eventId);
+  }, 0);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.transports.Transport" id="apidoc.module.raven.transports.Transport">module raven.transports.Transport</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.transports.Transport.Transport" id="apidoc.element.raven.transports.Transport.Transport">
+        function <span class="apidocSignatureSpan">raven.transports.</span>Transport
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Transport() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.transports.Transport.super_" id="apidoc.element.raven.transports.Transport.super_">
+        function <span class="apidocSignatureSpan">raven.transports.Transport.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.raven.utils" id="apidoc.module.raven.utils">module raven.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.raven.utils.consoleAlert" id="apidoc.element.raven.utils.consoleAlert">
+        function <span class="apidocSignatureSpan">raven.utils.</span>consoleAlert
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function consoleAlert(msg) {
+  if (consoleAlerts) {
+    console.log(&#x27;raven@&#x27; + ravenVersion + &#x27; alert: &#x27; + msg);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  originals.push([pg.Connection.prototype, &#x27;query&#x27;, origQuery]);
+}
+};
+
+function instrument(key, Raven) {
+try {
+  wrappers[key](Raven);
+  utils.<span class="apidocCodeKeywordSpan">consoleAlert</span>(&#x27;Enabled automatic breadcrumbs for &#x27; + key);
+} catch (e) {
+  // associated module not available
+}
+}
+
+function restoreOriginals() {
+var original;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.utils.consoleAlertOnce" id="apidoc.element.raven.utils.consoleAlertOnce">
+        function <span class="apidocSignatureSpan">raven.utils.</span>consoleAlertOnce
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function consoleAlertOnce(msg) {
+  if (consoleAlerts &#x26;&#x26; !(msg in consoleAlerts)) {
+    consoleAlerts[msg] = true;
+    console.log(&#x27;raven@&#x27; + ravenVersion + &#x27; alert: &#x27; + msg);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+nodeUtil.inherits(Raven, events.EventEmitter);
+
+extend(Raven.prototype, {
+  config: function config(dsn, options) {
+// We get lots of users using raven-node when they want raven-js, hence this warning if it seems like a browser
+if (typeof window !== &#x27;undefined&#x27; &#x26;&#x26; typeof document !== &#x27;undefined&#x27; &#x26;&#x26; typeof navigator
+ !== &#x27;undefined&#x27;) {
+  utils.<span class="apidocCodeKeywordSpan">consoleAlertOnce</span>(&#x27;This looks like a browser environment; are you sure you
+ don\&#x27;t want Raven.js for browser JavaScript? https://sentry.io/for/javascript&#x27;);
+}
+
+if (arguments.length === 0) {
+  // no arguments, use default from environment
+  dsn = process.env.SENTRY_DSN;
+  options = {};
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.utils.disableConsoleAlerts" id="apidoc.element.raven.utils.disableConsoleAlerts">
+        function <span class="apidocSignatureSpan">raven.utils.</span>disableConsoleAlerts
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function disableConsoleAlerts() {
+  consoleAlerts = false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- Added `captureUnhandledRejections` option for Promise rejections
+- Introduced contexts and associated `set/merge/getContext` methods [See #207]
+- Added `shouldSendCallback` config option and `set*Callback` methods [See #220]
+- Added `intercept()` method [See #225]
+- Backwards compatibility was mostly maintained, but lots of stuff was deprecated
+ - We&#x27;ll print console messages if you&#x27;re doing anything the old way
+ - We&#x27;ll also print console messages in certain situations where behavior might be surprising, like if no DSN is configured
+ - You can disable these alerts with `Raven.<span class="apidocCodeKeywordSpan">disableConsoleAlerts</span>();`
+
+# 0.12.3 - 11/21/2016
+* Replace `node-uuid` dependency with `uuid` [See #236]
+
+# 0.12.2 - 11/17/2016
+* Add column number to stack frames [See #235]
+* Check that `require.main.filename` is defined [See #233]
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.utils.extend" id="apidoc.element.raven.utils.extend">
+        function <span class="apidocSignatureSpan">raven.utils.</span>extend
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function assign() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.utils.getAuthHeader" id="apidoc.element.raven.utils.getAuthHeader">
+        function <span class="apidocSignatureSpan">raven.utils.</span>getAuthHeader
+        <span class="apidocSignatureSpan">(timestamp, apiKey, apiSecret)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getAuthHeader(timestamp, apiKey, apiSecret) {
+  var header = [&#x27;Sentry sentry_version=5&#x27;];
+  header.push(&#x27;sentry_timestamp=&#x27; + timestamp);
+  header.push(&#x27;sentry_client=raven-node/&#x27; + ravenVersion);
+  header.push(&#x27;sentry_key=&#x27; + apiKey);
+  header.push(&#x27;sentry_secret=&#x27; + apiSecret);
+  return header.join(&#x27;, &#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var skwargs = stringify(kwargs);
+  var eventId = kwargs.event_id;
+
+  zlib.deflate(skwargs, function (err, buff) {
+    var message = buff.toString(&#x27;base64&#x27;),
+        timestamp = new Date().getTime(),
+        headers = {
+          &#x27;X-Sentry-Auth&#x27;: utils.<span class="apidocCodeKeywordSpan">getAuthHeader</span>(timestamp, self.dsn.public_key
+, self.dsn.private_key),
+          &#x27;Content-Type&#x27;: &#x27;application/octet-stream&#x27;,
+          &#x27;Content-Length&#x27;: message.length
+        };
+
+    self.transport.send(self, message, headers, eventId, cb);
+  });
+},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.utils.getCulprit" id="apidoc.element.raven.utils.getCulprit">
+        function <span class="apidocSignatureSpan">raven.utils.</span>getCulprit
+        <span class="apidocSignatureSpan">(frame)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getCulprit(frame) {
+  if (frame.module || frame.function) {
+    return (frame.module || &#x27;?&#x27;) + &#x27; at &#x27; + (frame.function || &#x27;?&#x27;);
+  }
+  return &#x27;&#x3c;unknown&#x3e;&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (extraErrorProps) {
+      kwargs.extra = kwargs.extra || {};
+      kwargs.extra[name] = extraErrorProps;
+    }
+
+    for (var n = frames.length - 1; n &#x3e;= 0; n--) {
+      if (frames[n].in_app) {
+        kwargs.culprit = kwargs.culprit || utils.<span class="apidocCodeKeywordSpan">getCulprit</span>(frames[n]);
+        break;
+      }
+    }
+
+    cb(kwargs);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.utils.getModule" id="apidoc.element.raven.utils.getModule">
+        function <span class="apidocSignatureSpan">raven.utils.</span>getModule
+        <span class="apidocSignatureSpan">(filename, base)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getModule(filename, base) {
+  if (!base) base = mainModule;
+
+  // It&#x27;s specifically a module
+  var file = path.basename(filename, &#x27;.js&#x27;);
+  filename = path.dirname(filename);
+  var n = filename.lastIndexOf(&#x27;/node_modules/&#x27;);
+  if (n &#x3e; -1) {
+    // /node_modules/ is 14 chars
+    return filename.substr(n + 14).replace(/\//g, &#x27;.&#x27;) + &#x27;:&#x27; + file;
+  }
+  // Let&#x27;s see if it&#x27;s a part of the main module
+  // To be a part of main module, it has to share the same base
+  n = (filename + &#x27;/&#x27;).lastIndexOf(base, 0);
+  if (n === 0) {
+    var module = filename.substr(base.length).replace(/\//g, &#x27;.&#x27;);
+    if (module) module += &#x27;:&#x27;;
+    module += file;
+    return module;
+  }
+  return file;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.utils.getModules" id="apidoc.element.raven.utils.getModules">
+        function <span class="apidocSignatureSpan">raven.utils.</span>getModules
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getModules() {
+  if (!moduleCache) {
+    moduleCache = lsmod();
+  }
+  return moduleCache;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+kwargs.user = extend({}, this._globalContext.user, domainContext.user, kwargs.user);
+kwargs.tags = extend({}, this._globalContext.tags, domainContext.tags, kwargs.tags);
+kwargs.extra = extend({}, this._globalContext.extra, domainContext.extra, kwargs.extra);
+kwargs.breadcrumbs = {
+  values: domainContext.breadcrumbs || this._globalContext.breadcrumbs || []
+};
+
+kwargs.modules = utils.<span class="apidocCodeKeywordSpan">getModules</span>();
+kwargs.server_name = kwargs.server_name || this.name;
+
+if (typeof process.version !== &#x27;undefined&#x27;) {
+  kwargs.extra.node = process.version;
+}
+
+kwargs.environment = kwargs.environment || this.environment;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.utils.parseDSN" id="apidoc.element.raven.utils.parseDSN">
+        function <span class="apidocSignatureSpan">raven.utils.</span>parseDSN
+        <span class="apidocSignatureSpan">(dsn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseDSN(dsn) {
+  if (!dsn) {
+    // Let a falsey value return false explicitly
+    return false;
+  }
+  try {
+    var parsed = url.parse(dsn),
+        response = {
+          protocol: parsed.protocol.slice(0, -1),
+          public_key: parsed.auth.split(&#x27;:&#x27;)[0],
+          private_key: parsed.auth.split(&#x27;:&#x27;)[1],
+          host: parsed.host.split(&#x27;:&#x27;)[0]
+        };
+
+    if (~response.protocol.indexOf(&#x27;+&#x27;)) {
+      response.protocol = response.protocol.split(&#x27;+&#x27;)[1];
+    }
+
+    if (!transports.hasOwnProperty(response.protocol)) {
+      throw new Error(&#x27;Invalid transport&#x27;);
+    }
+
+    var index = parsed.pathname.lastIndexOf(&#x27;/&#x27;);
+    response.path = parsed.pathname.substr(0, index + 1);
+    response.project_id = parsed.pathname.substr(index + 1);
+    response.port = ~~parsed.port || protocolMap[response.protocol] || 443;
+    return response;
+  } catch (e) {
+    throw new Error(&#x27;Invalid Sentry DSN: &#x27; + dsn);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // They must only be passing through options
+  options = dsn;
+  dsn = process.env.SENTRY_DSN;
+}
+options = options || {};
+
+this.raw_dsn = dsn;
+this.dsn = utils.<span class="apidocCodeKeywordSpan">parseDSN</span>(dsn);
+this.name = options.name || process.env.SENTRY_NAME || require(&#x27;os&#x27;).hostname();
+this.root = options.root || process.cwd();
+this.transport = options.transport || transports[this.dsn.protocol];
+this.release = options.release || process.env.SENTRY_RELEASE || &#x27;&#x27;;
+this.environment = options.environment || process.env.SENTRY_ENVIRONMENT || &#x27;&#x27;;
+
+// autoBreadcrumbs: true enables all, autoBreadcrumbs: false disables all
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.raven.utils.parseStack" id="apidoc.element.raven.utils.parseStack">
+        function <span class="apidocSignatureSpan">raven.utils.</span>parseStack
+        <span class="apidocSignatureSpan">(err, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseStack(err, cb) {
+  var frames = [],
+      cache = {};
+
+  if (!err) {
+    return cb(frames);
+  }
+
+  var stack = stacktrace.parse(err);
+
+  // check to make sure that the stack is what we need it to be.
+  if (!stack || !Array.isArray(stack) || !stack.length || !stack[0].getFileName) {
+    // lol, stack is fucked
+    return cb(frames);
+  }
+
+  var callbacks = stack.length;
+
+  // Sentry requires the stack trace to be from oldest to newest
+  stack.reverse();
+
+  return stack.forEach(function (line, index) {
+    var frame = {
+          filename: line.getFileName() || &#x27;&#x27;,
+          lineno: line.getLineNumber(),
+          colno: line.getColumnNumber(),
+          &#x27;function&#x27;: getFunction(line),
+        },
+        isInternal = line.isNative() ||
+          frame.filename[0] !== &#x27;/&#x27; &#x26;&#x26;
+          frame.filename[0] !== &#x27;.&#x27; &#x26;&#x26;
+          frame.filename.indexOf(&#x27;:\\&#x27;) !== 1;
+
+    // in_app is all that&#x27;s not an internal Node function or a module within node_modules
+    // note that isNative appears to return true even for node core libraries
+    // see https://github.com/getsentry/raven-node/issues/176
+    frame.in_app = !isInternal &#x26;&#x26; frame.filename.indexOf(&#x27;node_modules/&#x27;) === -1;
+
+    // Extract a module name based on the filename
+    if (frame.filename) frame.module = getModule(frame.filename);
+
+    // internal Node files are not full path names. Ignore them.
+    if (isInternal) {
+      frames[index] = frame;
+      if (--callbacks === 0) cb(frames);
+      return;
+    }
+
+    if (frame.filename in cache) {
+      parseLines(cache[frame.filename], frame);
+      if (--callbacks === 0) cb(frames);
+      return;
+    }
+
+    fs.readFile(frame.filename, function (_err, file) {
+      if (!_err) {
+        file = file.toString().split(&#x27;\n&#x27;);
+        cache[frame.filename] = file;
+        parseLines(file, frame);
+      }
+      frames[index] = frame;
+      if (--callbacks === 0) cb(frames);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+kwargs = kwargs || {};
+kwargs.message = message;
+
+return kwargs;
+};
+
+module.exports.parseError = function parseError(err, kwargs, cb) {
+utils.<span class="apidocCodeKeywordSpan">parseStack</span>(err, function (frames) {
+  var name = err.name + &#x27;&#x27;;
+  if (typeof kwargs.message === &#x27;undefined&#x27;) {
+    kwargs.message = name + &#x27;: &#x27; + (err.message || &#x27;&#x3c;no message&#x3e;&#x27;);
+  }
+  kwargs.exception = [{
+    type: name,
+    value: err.message,
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
